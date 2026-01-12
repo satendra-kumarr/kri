@@ -69,7 +69,8 @@ export default function Header() {
         { label: "Diploma Course", href: "/courses#diploma" },
         { label: "License Courses", href: "/courses#ame-cpl" },
         { label: "Government Exam Practices", href: "/courses#competitive" }
-      ]
+      ],
+      href: "/courses"
     },
     { label: "Our Fleet", hasDropdown: false, href: "/fleet" },
     { label: "Why KRI?", hasDropdown: false, href: "/why-choose-us" },
