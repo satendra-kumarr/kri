@@ -15,7 +15,7 @@ const inter = Inter({
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ? process.env.NEXT_PUBLIC_BASE_URL
-  : 'https://kricollege.edu.in';
+  : 'https://kri.org.in';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

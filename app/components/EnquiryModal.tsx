@@ -88,7 +88,7 @@ export default function EnquiryModal() {
 
                     {/* FORM */}
                     <form
-                        action="mailto:admissions@kricollege.edu.in"
+                        action="mailto:admissions@kri.org.in"
                         method="POST"
                         encType="text/plain"
                         className="space-y-4"

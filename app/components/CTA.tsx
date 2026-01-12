@@ -119,8 +119,8 @@ export default function CTA() {
                                     <a href="tel:+919894925233" className="flex items-center justify-center gap-2 hover:text-[#003366]">
                                         <Phone size={16} /> +91 98949 25233, +91 98949 59200
                                     </a>
-                                    <a href="mailto:info@kricollege.edu.in" className="flex items-center justify-center gap-2 hover:text-[#003366]">
-                                        <Mail size={16} /> info@kricollege.edu.in
+                                    <a href="mailto:info@kri.org.in" className="flex items-center justify-center gap-2 hover:text-[#003366]">
+                                        <Mail size={16} /> info@kri.org.in
                                     </a>
                                 </div>
                             </div>

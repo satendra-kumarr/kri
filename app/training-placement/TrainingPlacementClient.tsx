@@ -154,7 +154,7 @@ export default function TrainingPlacementClient() {
                         <h4 className="font-bold text-[#003366] border-b border-gray-300 pb-2 mb-3">Placement Enquiry</h4>
                         <div className="space-y-2 text-xs text-gray-700">
                             <p className="flex items-center gap-2"><Phone size={14} className="text-[#D4AF37]" /> +91 98949 25233, +91 98949 59200</p>
-                            <p className="flex items-center gap-2"><Briefcase size={14} className="text-[#D4AF37]" /> placement@kricollege.edu.in</p>
+                            <p className="flex items-center gap-2"><Briefcase size={14} className="text-[#D4AF37]" /> placement@kri.org.in</p>
                             <button
                                 onClick={() => router.push('/contact')}
                                 className="w-full mt-3 bg-[#D4AF37] text-[#003366] font-bold py-2 uppercase text-xs rounded-sm hover:bg-yellow-500 transition-colors"

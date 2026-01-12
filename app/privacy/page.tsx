@@ -96,7 +96,7 @@ export default function PrivacyPage() {
                     <section>
                         <h2 className="text-lg font-bold text-[#003366] mb-3">9. Contact Us</h2>
                         <p>
-                            If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@kricollege.edu.in" className="text-[#003366] font-bold hover:underline">info@kricollege.edu.in</a>.
+                            If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@kri.org.in" className="text-[#003366] font-bold hover:underline">info@kri.org.in</a>.
                         </p>
                     </section>
 

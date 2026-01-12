@@ -119,7 +119,7 @@ export default function CoursesClient() {
                         <h4 className="font-bold text-[#003366] border-b border-gray-300 pb-2 mb-3">Admission Enquiry</h4>
                         <div className="space-y-2 text-xs text-gray-700">
                             <p><strong>Phone:</strong> +91 98949 25233, +91 98949 59200</p>
-                            <p><strong>Email:</strong> admission@kricollege.edu.in</p>
+                            <p><strong>Email:</strong> admission@kri.org.in</p>
 
                             <button
                                 onClick={() =>

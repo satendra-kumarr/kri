@@ -132,12 +132,12 @@ export default function Footer() {
                             </div>
 
                             <div className="flex gap-4 group">
-                                <Link href="mailto:info@kricollege.edu.in" className="w-10 h-10 bg-[#D4AF37]/10 flex items-center justify-center rounded-sm text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0f172a] transition-colors duration-300 shrink-0">
+                                <Link href="mailto:info@kri.org.in" className="w-10 h-10 bg-[#D4AF37]/10 flex items-center justify-center rounded-sm text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0f172a] transition-colors duration-300 shrink-0">
                                     <Mail size={20} />
                                 </Link>
                                 <div className="text-sm">
                                     <strong className="text-white block mb-1">Email Us</strong>
-                                    <a href="mailto:info@kricollege.edu.in" className="hover:text-[#D4AF37] transition-colors">info@kricollege.edu.in</a>
+                                    <a href="mailto:info@kri.org.in" className="hover:text-[#D4AF37] transition-colors">info@kri.org.in</a>
                                 </div>
                             </div>
                         </div>

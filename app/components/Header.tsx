@@ -148,9 +148,9 @@ export default function Header() {
         <div className="w-full bg-[#003366] text-white text-xs py-2">
           <div className="container-custom flex justify-between items-center">
             <div className="flex gap-6">
-              <a href="mailto:info@kricollege.edu.in" className="flex items-center gap-2 hover:text-[#D4AF37] transition-colors">
+              <a href="mailto:info@kri.org.in" className="flex items-center gap-2 hover:text-[#D4AF37] transition-colors">
                 <Mail size={14} className="text-[#D4AF37]" />
-                <span>info@kricollege.edu.in</span>
+                <span>info@kri.org.in</span>
               </a>
               {/* ===== Button in Desktop Header ===== */}
               <button

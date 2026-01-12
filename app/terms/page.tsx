@@ -81,7 +81,7 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-lg font-bold text-[#003366] mb-3">9. Contact Information</h2>
                         <p>
-                            For any queries regarding these Terms and Conditions, please contact us at <a href="mailto:info@kricollege.edu.in" className="text-[#003366] font-bold hover:underline">info@kricollege.edu.in</a>.
+                            For any queries regarding these Terms and Conditions, please contact us at <a href="mailto:info@kri.org.in" className="text-[#003366] font-bold hover:underline">info@kri.org.in</a>.
                         </p>
                     </section>
 

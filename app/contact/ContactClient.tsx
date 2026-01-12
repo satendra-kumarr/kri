@@ -18,7 +18,7 @@ export default function ContactClient() {
         const message = formData.get('Message');
 
         const mailtoLink =
-            `mailto:info@kricollege.edu.in` +
+            `mailto:info@kri.org.in` +
             `?subject=${encodeURIComponent(subject?.toString() || 'Website Enquiry')}` +
             `&body=${encodeURIComponent(
                 `Name: ${name}
@@ -105,8 +105,8 @@ ${message}`
                                     <div>
                                         <h3 className="font-bold text-[#333] mb-1">Email Addresses</h3>
                                         <p className="text-sm text-gray-600">
-                                            <a href="mailto:info@kricollege.edu.in" className="hover:text-[#003366] transition-colors block">info@kricollege.edu.in</a>
-                                            <a href="mailto:admissions@kricollege.edu.in" className="hover:text-[#003366] transition-colors block">admissions@kricollege.edu.in</a>
+                                            <a href="mailto:info@kri.org.in" className="hover:text-[#003366] transition-colors block">info@kri.org.in</a>
+                                            <a href="mailto:admissions@kri.org.in" className="hover:text-[#003366] transition-colors block">admissions@kri.org.in</a>
                                         </p>
                                     </div>
                                 </div>
