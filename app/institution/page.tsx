@@ -431,7 +431,7 @@ export default function InstitutionPage() {
                                 <div className="flex gap-4 mb-4">
                                     <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
                                         <Image
-                                            src="/images/Mr. Surya, M.Tec.png"
+                                            src="/images/surya.png"
                                             alt="Er. K. Jaffer Sheriff"
                                             fill
                                             className="object-cover"
