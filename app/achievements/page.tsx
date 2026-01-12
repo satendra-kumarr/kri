@@ -8,7 +8,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KRI College Achievements - Recognized Excellence",
     description: "From national awards to community impact, explore KRI College of Aeronautics' journey of excellence.",
-    images: ['/images/Dr. Vaseegaran.PNG'],
+    images: [
+      '/images/Minister John Barla.png',
+      '/images/Dr. K. Tamilisai Soundararajan.PNG',
+      '/images/Malaysian Dignitaries.PNG'
+    ],
   }
 };
 

@@ -5,6 +5,11 @@ export const metadata: Metadata = {
     title: "Privacy Policy | KRI College of Aeronautics",
     description: "Read our Privacy Policy to understand how KRI College collects, uses, and protects your personal information.",
     keywords: ["KRI Privacy Policy", "Data Protection", "Student Data Privacy", "Website Privacy"],
+    openGraph: {
+        title: "Privacy Policy | KRI College of Aeronautics",
+        description: "Our commitment to protecting your personal information.",
+        images: ['/images/logo.png', '/images/kri-front.jpeg'],
+    }
 };
 
 export default function PrivacyPage() {

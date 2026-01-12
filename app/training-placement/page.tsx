@@ -8,7 +8,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Training & Placement Cell | KRI College of Aeronautics",
         description: "Building future-ready aviation professionals with industrial visits, airport training, and global career support.",
-        images: ['/images/Infrastructure.jpeg'],
+        images: [
+            '/images/Placement.jpg',
+            '/images/Academic.jpg',
+            '/images/industry-collaborations.png',
+            '/images/training-atc.jpg'
+        ],
     }
 };
 

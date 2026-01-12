@@ -8,7 +8,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Aviation Courses Offered | KRI College of Aeronautics",
         description: "Join the best aviation college in Madurai. Offering B.Sc Aviation, AME, BBA Airline Management, and more. Secure your career in the sky.",
-        images: ['/images/Opportunities.jpg'],
+        images: [
+            '/images/Opportunities.jpg',
+            '/images/training-4.jpg',
+            '/images/training-1.jpg',
+            '/images/industry-training.jpg'
+        ],
     }
 };
 

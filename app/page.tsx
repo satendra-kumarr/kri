@@ -20,7 +20,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: "KRI College of Aeronautics | Excellence in Aviation Education",
         description: "Admissions Open! Start your high-flying career with world-class facilities and expert training at KRI College, Madurai.",
-        images: ['/images/kri-front.jpeg'],
+        images: [
+            '/images/kri-front.jpeg',
+            '/images/Infrastructure.jpeg',
+            '/images/Cessna-210.jpg',
+            '/images/training-1.jpg'
+        ],
     }
 };
 

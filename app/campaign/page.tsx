@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "KRI College Social Initiatives",
         description: "Empowering youth through community service. See our latest campaigns and social impact.",
-        images: ['/images/Campaing1.png'],
+        images: [
+            '/images/Campaing1.png',
+            '/images/Campaing10.png',
+            '/images/Campaing21.png'
+        ],
     }
 };
 

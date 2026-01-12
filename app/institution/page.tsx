@@ -8,7 +8,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: "About KRI College of Aeronautics",
         description: "Discover our legacy of excellence in aviation education. Approved by Alagappa University and BSS.",
-        images: ['/images/kri-front.jpeg'],
+        images: [
+            '/images/kri-front.jpeg',
+            '/images/Leadership.png',
+            '/images/founder.png',
+            '/images/Dr. Vaseegaran.PNG'
+        ],
     }
 };
 

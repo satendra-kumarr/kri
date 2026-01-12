@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Why Choose KRI College of Aeronautics?",
         description: "Join the best aviation college in South India. Recognized degrees, world-class placement, and hands-on training.",
-        images: ['/images/Infrastructure.jpeg'],
+        images: [
+            '/images/Globally.png',
+            '/images/Infrastructure.jpeg',
+            '/images/Placement.jpg'
+        ],
     }
 };
 

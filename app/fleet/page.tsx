@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "KRI College Training Fleet",
         description: "State-of-the-art aircraft for world-class pilot training. View our fleet and simulator facilities.",
-        images: ['/images/sedan-2.jpg'],
+        images: [
+            '/images/sedan.jpg',
+            '/images/Cessna-210.jpg',
+            '/images/training-1.jpg'
+        ],
     }
 };
 

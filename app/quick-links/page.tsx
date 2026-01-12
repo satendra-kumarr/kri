@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KRI College Quick Resources",
     description: "Essential links for aviation students, regulatory bodies, and scholarship information.",
-    images: ['/images/kri-front.jpeg'],
+    images: [
+      '/images/social.jpg',
+      '/images/Instagram QR.png',
+      '/images/kri-front.jpeg'
+    ],
   }
 };
 

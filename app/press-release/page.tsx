@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "KRI College Press & Media",
         description: "Celebrating our milestones and student success stories as featured in top publications.",
-        images: ['/images/kri-front.jpeg'], // Using a default existing image
+        images: [
+            '/images/Minister John Barla.png',
+            '/images/press.jpg',
+            '/images/kri-front.jpeg'
+        ],
     }
 };
 

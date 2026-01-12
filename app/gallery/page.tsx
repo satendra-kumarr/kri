@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "KRI College Campus Gallery",
         description: "A visual journey through our campus, events, and aviation training facilities.",
-        images: ['/images/training-1.jpg'],
+        images: [
+            '/images/gallery-1.jpg',
+            '/images/gallery-2.jpg',
+            '/images/training-3.jpg'
+        ],
     }
 };
 

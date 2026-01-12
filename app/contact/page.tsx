@@ -8,7 +8,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Contact King Rashid International College",
         description: "Admissions open. Get directions, email us, or call for expert counseling.",
-        images: ['/images/kri-front.jpeg'], // Using a default existing image
+        images: [
+            '/images/kri-front.jpeg',
+            '/images/location.jpg'
+        ],
     }
 };
 

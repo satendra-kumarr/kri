@@ -5,6 +5,11 @@ export const metadata: Metadata = {
     title: "Terms and Conditions | KRI College of Aeronautics",
     description: "Terms of use for the KRI College website. Information on admissions, fees, and user conduct.",
     keywords: ["KRI Terms", "College Website Terms", "Admission Terms", "User Agreement"],
+    openGraph: {
+        title: "Terms and Conditions | KRI College of Aeronautics",
+        description: "User agreement and terms of service for KRI College website.",
+        images: ['/images/logo.png', '/images/kri-front.jpeg'],
+    }
 };
 
 export default function TermsPage() {
