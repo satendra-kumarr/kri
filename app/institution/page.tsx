@@ -269,68 +269,6 @@ export default function InstitutionPage() {
                                 </div>
                             </div>
 
-                            {/* Academic Leadership */}
-                            <div className="border border-gray-200 p-5 bg-gray-50 hover:bg-white transition-colors">
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className="relative w-12 h-12 shrink-0 bg-[#003366] rounded-full overflow-hidden border-2 border-white shadow-sm flex items-center justify-center">
-                                        <GraduationCap size={20} className="text-white" />
-                                    </div>
-                                    <h4 className="font-bold text-[#003366] text-md">Academic Leadership</h4>
-                                </div>
-                                <div className="relative h-32 w-full mb-3 bg-gray-200 rounded-sm overflow-hidden">
-                                    <Image
-                                        src="/images/academic-leadership.jpg"
-                                        alt="Academic Leadership Team"
-                                        fill
-                                        className="object-cover opacity-90"
-                                    />
-                                </div>
-                                <p className="text-xs text-gray-600 leading-relaxed text-justify">
-                                    A team of well-qualified aviation educators, university-certified faculty, and industry professionals delivering high-quality, application-based learning.
-                                </p>
-                            </div>
-
-                            {/* Industry Training */}
-                            <div className="border border-gray-200 p-5 bg-gray-50 hover:bg-white transition-colors">
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className="relative w-12 h-12 shrink-0 bg-[#003366] rounded-full overflow-hidden border-2 border-white shadow-sm flex items-center justify-center">
-                                        <Plane size={20} className="text-white" />
-                                    </div>
-                                    <h4 className="font-bold text-[#003366] text-md">Industry Training & Placement</h4>
-                                </div>
-                                <div className="relative h-32 w-full mb-3 bg-gray-200 rounded-sm overflow-hidden">
-                                    <Image
-                                        src="/images/industry-training.jpg"
-                                        alt="Industry Training"
-                                        fill
-                                        className="object-cover opacity-90"
-                                    />
-                                </div>
-                                <p className="text-xs text-gray-600 leading-relaxed text-justify">
-                                    Experts managing airline tie-ups, airport internships, DGCA-linked institution collaborations, and placement guidance for domestic and international opportunities.
-                                </p>
-                            </div>
-
-                            {/* Admin & Ops */}
-                            <div className="border border-gray-200 p-5 bg-gray-50 hover:bg-white transition-colors">
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className="relative w-12 h-12 shrink-0 bg-[#003366] rounded-full overflow-hidden border-2 border-white shadow-sm flex items-center justify-center">
-                                        <Building2 size={20} className="text-white" />
-                                    </div>
-                                    <h4 className="font-bold text-[#003366] text-md">Administrative & Operations</h4>
-                                </div>
-                                <div className="relative h-32 w-full mb-3 bg-gray-200 rounded-sm overflow-hidden">
-                                    <Image
-                                        src="/images/Administrative.jpg"
-                                        alt="Admin Team"
-                                        fill
-                                        className="object-cover opacity-90"
-                                    />
-                                </div>
-                                <p className="text-xs text-gray-600 leading-relaxed text-justify">
-                                    A disciplined, student-focused management team ensuring smooth operations, support services, and a positive learning environment.
-                                </p>
-                            </div>
 
 
                             <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
