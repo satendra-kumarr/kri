@@ -987,7 +987,7 @@ export default function InstitutionPage() {
                         <div className="grid md:grid-cols-2 gap-6 items-stretch">
                             <div className="relative h-64 md:h-auto rounded-sm overflow-hidden shadow-sm">
                                 <Image
-                                    src="/campaing19.png"
+                                    src="/images/campaing19.png"
                                     alt="Students engaged in social contribution"
                                     fill
                                     className="object-cover"
