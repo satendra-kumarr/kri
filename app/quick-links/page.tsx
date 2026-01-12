@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Metadata } from 'next';
 import {
   Plane,
   GraduationCap,
@@ -8,6 +9,17 @@ import {
   Heart,
   Link as LinkIcon,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Quick Links | Student Resources & Aviation Portals | KRI College",
+  description: "Access important aviation regulatory links (DGCA, BCAS), scholarship portals, and student payment details for KRI College.",
+  keywords: ["KRI Quick Links", "Aviation Regulatory Links", "Student Payments", "Scholarship Portals", "DGCA Links", "Aviation Jobs"],
+  openGraph: {
+    title: "KRI College Quick Resources",
+    description: "Essential links for aviation students, regulatory bodies, and scholarship information.",
+    images: ['/images/kri-front.jpeg'],
+  }
+};
 
 export default function QuickLinksPage() {
   return (

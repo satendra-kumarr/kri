@@ -1,4 +1,11 @@
-'use client';
+
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Terms and Conditions | KRI College of Aeronautics",
+    description: "Terms of use for the KRI College website. Information on admissions, fees, and user conduct.",
+    keywords: ["KRI Terms", "College Website Terms", "Admission Terms", "User Agreement"],
+};
 
 export default function TermsPage() {
     return (

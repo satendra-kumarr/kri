@@ -14,8 +14,14 @@ import Recruiters from "./components/Recruiters";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Home',
-    description: 'Welcome to King Rashid International College of Aeronautics. We offer world-class aviation training and placement support.',
+    title: 'KRI College of Aeronautics | Top Aviation Institute in Madurai',
+    description: 'Join King Rashid International Institute (KRI), the premier aviation college in Madurai offering Pilot Training, AME, and B.Sc Aviation courses with 100% placement support.',
+    keywords: ["KRI College", "Aviation College Madurai", "Pilot Training", "Aircraft Maintenance Engineering", "AME Course", "B.Sc Aviation", "Best Aviation Institute Tamil Nadu"],
+    openGraph: {
+        title: "KRI College of Aeronautics | Excellence in Aviation Education",
+        description: "Admissions Open! Start your high-flying career with world-class facilities and expert training at KRI College, Madurai.",
+        images: ['/images/kri-front.jpeg'],
+    }
 };
 
 export default function Home() {

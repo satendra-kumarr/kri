@@ -1,4 +1,11 @@
-'use client';
+
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | KRI College of Aeronautics",
+    description: "Read our Privacy Policy to understand how KRI College collects, uses, and protects your personal information.",
+    keywords: ["KRI Privacy Policy", "Data Protection", "Student Data Privacy", "Website Privacy"],
+};
 
 export default function PrivacyPage() {
     return (
@@ -13,7 +20,7 @@ export default function PrivacyPage() {
                     <section>
                         <h2 className="text-lg font-bold text-[#003366] mb-3">1. Information We Collect</h2>
                         <p className="mb-2">
-                            King Rashid International College of Aeronautics ("we," "us," "our") respects your privacy. We may collect the following types of information:
+                            King Rashid International College of Aeronautics (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;) respects your privacy. We may collect the following types of information:
                         </p>
                         <ul className="list-disc list-inside ml-4 space-y-1">
                             <li><strong>Personal Information:</strong> Name, email address, phone number, and academic details when you fill out forms.</li>
