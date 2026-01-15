@@ -9,7 +9,7 @@ export default function About() {
 
           {/* TEXT */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#003366] border-l-8 border-[#D4AF37] pl-4 mb-6 uppercase tracking-wide">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#003366] border-l-8 border-[#D4AF37] pl-4 mb-10 uppercase tracking-wide">
               Flying High Since 2008
             </h2>
 
@@ -47,13 +47,13 @@ export default function About() {
 
           {/* IMAGE */}
           <div className="relative">
-            <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden shadow-lg">
+            <div className="relative w-full h-[420px] lg:h-[520px] rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/images/Defense Armed Forces.png"
+                src="/images/Defense Armed Forces2.png"
                 alt="Defense Armed Forces Visit"
                 fill
                 priority
-                className="object-cover h-[1200px] w-[100%]"
+                className="object-cover h-[1000px] w-[100%]"
               />
             </div>
 

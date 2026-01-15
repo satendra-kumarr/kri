@@ -43,8 +43,8 @@ export default function Footer() {
                         <div className="flex gap-3 pt-2">
                             {[
                                 { icon: <Facebook size={18} />, href: "https://www.facebook.com/kricollege/", color: "hover:bg-[#3b5998]" },
-                                { icon: <Twitter size={18} />, href: "#", color: "hover:bg-[#00acee]" },
-                                { icon: <Linkedin size={18} />, href: "#", color: "hover:bg-[#0077b5]" },
+                                { icon: <Twitter size={18} />, href: "/", color: "hover:bg-[#00acee]" },
+                                { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/delhi-public-school-fatehpur/", color: "hover:bg-[#0077b5]" },
                                 {
                                     icon: <Instagram size={18} />,
                                     href: "https://www.instagram.com/kricollege/",
@@ -82,7 +82,14 @@ export default function Footer() {
                                 { label: "Achievements", href: "/achievements" },
                                 { label: "Contact Support", href: "/contact" },
                                 { label: "Our Gallery", href: "/gallery" },
-                                { label: "Our Campaigns", href: "/campaign" }
+                                { label: "Our Campaigns", href: "/campaign" },
+
+                                {
+                                    label: "Google Review",
+                                    href: "https://g.page/r/CT_M_0BifNCyEBE/review",
+                                    external: true
+                                },
+                                { label: "FAQs", href: "/courses#faq" },
 
                             ].map((link, idx) => (
                                 <li key={idx}>

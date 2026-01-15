@@ -1,5 +1,5 @@
 'use client';
-
+import React, { useState } from 'react';
 import { useEnquiry } from '@/app/context/EnquiryContext';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,6 +11,7 @@ import {
 
 export default function WhyChooseUsClient() {
     const { openModal } = useEnquiry();
+    const [openImage, setOpenImage] = useState<string | null>(null);
 
     const keyStrengths = [
         {
@@ -141,12 +142,16 @@ export default function WhyChooseUsClient() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {keyStrengths.map((item, index) => (
                             <div key={index} className="group bg-white border border-gray-200 hover:border-[#D4AF37] transition-all duration-300 hover:shadow-xl flex flex-col h-full">
-                                <div className="h-48 relative overflow-hidden bg-gray-100">
+                               <div
+  className="h-48 relative overflow-hidden bg-gray-100 cursor-pointer"
+  onClick={() => setOpenImage(item.image)}
+>
                                     <Image
                                         src={item.image}
                                         alt={item.title}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        onClick={() => setOpenImage(item.image)}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                         <div className="text-white transform translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0 transition-transform duration-300">
@@ -193,6 +198,7 @@ export default function WhyChooseUsClient() {
                                         alt={pillar.title}
                                         fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                        onClick={() => setOpenImage(pillar.image)}
                                     />
                                 </div>
                                 <h3 className="text-lg font-bold text-[#D4AF37] mb-2 font-serif">{pillar.title}</h3>
@@ -201,6 +207,7 @@ export default function WhyChooseUsClient() {
                                 </p>
                             </div>
                         ))}
+
                     </div>
                 </div>
             </section>
@@ -231,7 +238,38 @@ export default function WhyChooseUsClient() {
                     </div>
                 </div>
             </section>
+            {/* Image Preview Modal */}
+            {openImage && (
+                <div
+                    className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center px-4"
+                    onClick={() => setOpenImage(null)}
+                >
+                    <div
+                        className="relative max-w-6xl w-full"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="absolute -top-10 right-0 text-white text-3xl font-bold"
+                            onClick={() => setOpenImage(null)}
+                            aria-label="Close image"
+                        >
+                            ×
+                        </button>
+
+                        <div className="relative w-full h-[70vh] bg-black">
+                            <Image
+                                src={openImage}
+                                alt="Image preview"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </div>
+
     );
 }

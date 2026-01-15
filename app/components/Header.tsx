@@ -22,7 +22,7 @@ export default function Header() {
   const router = useRouter();
 
   const handleQuickLinksClick = () => {
-    router.push("/quick-links");
+    router.push("/scholarship");
   };
 
   const toggleMobileMenu = () => {
@@ -85,7 +85,8 @@ export default function Header() {
       href: "/training-placement"
     },
     { label: "Achievements", hasDropdown: false, href: "/achievements" },
-    { label: "Quick Links", hasDropdown: false, href: "/quick-links" },
+    { label: "Quick Links", hasDropdown: false, href: "/quick-links" }
+
   ];
 
   return (
@@ -158,7 +159,7 @@ export default function Header() {
                 onClick={handleQuickLinksClick}
                 className="bg-[#D4AF37] text-[#003366] px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wide hover:bg-yellow-400 transition"
               >
-                Quick Links
+                Scholarship
               </button>
 
 
@@ -193,6 +194,15 @@ export default function Header() {
                   className="text-white hover:text-[#D4AF37] transition-colors"
                 >
                   <Youtube size={14} />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/company/delhi-public-school-fatehpur/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#D4AF37] transition-colors"
+                >
+                  <Linkedin size={14} />
                 </a>
                 <a
                   href="/images/THE KING RASHID INTERNATIONAL INSTITUTE.pdf"
@@ -260,16 +270,26 @@ export default function Header() {
                 </h1>
                 <span className="text-[#003366] font-bold">(COLLEGE OF AERONAUTICS)</span>
               </div>
-
               <div className="space-y-1 text-sm font-semibold text-gray-800 max-w-4xl mx-auto mt-1">
                 <p>
-                  A collaborative institution approved by <span className="text-[#003366] font-bold">Alagappa University</span> (A state Government University)
+                  A collaborative institution approved by{" "}
+                  <span className="text-[#003366] font-bold">Alagappa University</span>
+                  {" "} (A state Government University)
                 </p>
+
                 <div className="flex justify-center gap-2 text-xs font-medium text-gray-600">
-                  <span>State University</span> <span>|</span>
-                  <span className="text-[#003366] font-bold">A++ by NAAC</span> <span>|</span>
+                  <span>State University</span>
+                  <span>|</span>
+                  <span className="text-[#003366] font-bold">A++ by NAAC</span>
+                  <span>|</span>
                   <span>Category - I University by UGC</span>
                 </div>
+
+                <p className="mt-2 text-sm font-semibold text-gray-800 text-center">
+                  Approved Institution of Central BSS – Chennai
+                  <span className="mx-2 text-gray-400">|</span>
+                  Authorised Consultant for DGCA Approved Institution – New Delhi
+                </p>
               </div>
             </Link>
           </div>
@@ -419,7 +439,7 @@ export default function Header() {
           <div className="flex justify-center gap-8">
             <Link href="https://www.facebook.com/kricollege/" className="text-gray-400 hover:text-[#003366] transition-colors"><Facebook size={22} /></Link>
             <Link href="#" className="text-gray-400 hover:text-[#003366] transition-colors"><Twitter size={22} /></Link>
-            <Link href="#" className="text-gray-400 hover:text-[#003366] transition-colors"><Linkedin size={22} /></Link>
+            <Link href="https://www.linkedin.com/company/delhi-public-school-fatehpur/" className="text-gray-400 hover:text-[#003366] transition-colors"><Linkedin size={22} /></Link>
             <Link href="https://www.instagram.com/kricollege/" className="text-gray-400 hover:text-[#003366] transition-colors"><Instagram size={22} /></Link>
           </div>
         </div>

@@ -15,7 +15,7 @@ const fleetData = [
             "The Aeronca 15AC Sedan is a four-seat, fixed conventional gear light airplane which was produced by Aeronca Aircraft between 1948 and 1951. Designed for personal use, the Sedan also found applications in utility roles including bush flying.",
             "The Sedan was the last design that Aeronca put into production and was the largest aircraft produced by the company."
         ],
-        heroImage: "/images/sedan-2.jpg", // Hero     background image - change this to specific image for Aeronca
+        heroImage: "/images/sedan.jpg", // Hero     background image - change this to specific image for Aeronca
         mainImage: "/images/aeronca.webp",
         sideView: "/images/aeronca-1.png",
         topView: "/images/aeronca-2.png",
@@ -141,7 +141,8 @@ export default function FleetClient() {
 
 
             {/* ===== 1. HERO SECTION - Changes with Fleet ===== */}
-            <section className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden group cursor-pointer" onClick={() => setOpenImage(currentItem.heroImage || "/images/fleet.jpg")}>
+            <section className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden group cursor-pointer"
+                onClick={() => setOpenImage(currentItem.heroImage || "/images/fleet.jpg")}>
                 {/* Background Image - Changes with fleet */}
                 <div className="absolute inset-0 z-0">
                     <Image

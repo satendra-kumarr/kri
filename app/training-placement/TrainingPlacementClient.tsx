@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 import {
     Plane,
     Building2,
@@ -192,7 +193,147 @@ export default function TrainingPlacementClient() {
                             </p>
                         </div>
                     </section>
+                    <section id="placement" className="scroll-mt-24">
+                        <h2 className="text-xl md:text-2xl font-serif font-bold text-[#003366] mb-2 border-b-2 border-[#D4AF37] inline-block pb-1">
+                            Recently Placed Students
+                        </h2>
+                        <p className="text-sm text-gray-600 mb-6">Our students securing positions at top airlines and airports</p>
 
+                        <div className="max-w-5xl mx-auto">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                                {[
+
+                                    {
+                                        title: "ISHA PRIYADHARSHINI.S",
+                                        image: "/images/gallery4.jpg",
+                                        work: "Air India SATS – Bangalore Airport",
+                                        batch: "2021 DEGREE"
+
+                                    },
+                                    {
+                                        title: "AMJATH HUSSAIN",
+                                        image: "/images/AMJATH HUSSAIN.jpg",
+                                        work: "Air India SATS – Bangalore Airport",
+                                        batch: "2020 DIPLOMA"
+                                    },
+                                    {
+                                        title: "SANJAY KUMAR.V",
+                                        image: "/images/SANJAY KUMAR.V.png",
+                                        work: "Indian Air Force",
+                                        batch: "2021 DEGREE"
+                                    },
+                                    {
+                                        title: "JAMMUNA",
+                                        image: "/images/JAMMUNA.png",
+                                        work: "IndiGo Airlines – Madurai Airport",
+                                        batch: "2022 DIPLOMA"
+
+                                    },
+                                    {
+                                        title: "PRAKASH",
+                                        image: "/images/PRAKASH.png",
+                                        work: "IndiGo Airlines – Madurai Airport",
+                                        batch: "2020 DIPLOMA"
+                                    },
+                                    {
+                                        title: "SWETHA.S",
+                                        image: "/images/SWETHA.S.png",
+                                        work: "AirAsia Airlines - Trichy Airport",
+                                        batch: "2023 DIPLOMA"
+                                    },
+                                    {
+                                        title: "MUSTHAFA KAMAL BATCHA.A",
+                                        image: "/images/gallery1.jpg",
+                                        work: "Air India SATS – Bangalore Airport",
+                                        batch: "2021 DEGREE"
+                                    },
+
+
+                                    {
+                                        title: "ATCHAYA.S",
+                                        image: "/images/ATCHAYA.S.png",
+                                        work: "IndiGo Airlines, Chennai",
+                                        batch: "2023 DEGREE"
+                                    },
+                                    {
+                                        title: "RITHIKA",
+                                        image: "/images/RITHIKA.png",
+                                        work: "Madurai International Airport",
+                                        batch: "2025 DIPLOMA"
+                                    },
+                                    {
+                                        title: "SHERIFF.A",
+                                        image: "/images/SHERIFF.A.png",
+                                        work: "Marine Cargo Management",
+                                        batch: "2020 DIPLOMA"
+                                    },
+
+
+                                    {
+                                        title: "ESWAR. M.R",
+                                        image: "/images/ESWAR. M.R.png",
+                                        work: "Thai Airways – Bangalore Airport",
+                                        batch: "2022 DEGREE"
+                                    },
+                                    {
+                                        title: "ROSHAN.J",
+                                        image: "/images/ROSHAN.J.png",
+                                        work: "Thai Airways – Bangalore Airport",
+                                        batch: "2022 DEGREE"
+                                    },
+                                    {
+                                        title: "MOHAMED ARSADH",
+                                        image: "/images/MOHAMED ARSADH.png",
+                                        work: "SpiceJet – Tuticorin Airport",
+                                        batch: "2022 DEGREE"
+                                    },
+                                    {
+                                        title: "AMEER ATHIFF.A",
+                                        image: "/images/AMEER ATHIFF.A.png",
+                                        work: "Madurai International Airport",
+                                        batch: "2022 DEGREE"
+                                    },
+
+                                ].map((item, i) => (
+                                    <div key={i} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                                        {item.image && (
+                                            <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-100">
+                                                <img
+                                                    src={encodeURI(item.image)}
+                                                    alt={item.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                                <div className="absolute top-2 right-2 bg-[#D4AF37] text-[#003366] text-[10px] font-bold px-2 py-1 rounded-sm shadow">
+                                                    {item.batch}
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div className="p-3 text-center bg-[#003366]">
+                                            <h3 className="text-xs md:text-sm font-bold text-white leading-tight mb-1 truncate">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-[10px] md:text-[11px] text-[#D4AF37] font-medium leading-tight line-clamp-2">
+                                                {item.work}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                    <div className="mt-6 flex justify-start">
+                        <a
+                            href="https://www.youtube.com/@kricollege"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold uppercase tracking-wide
+               bg-[#D4AF37] text-[#003366] hover:bg-[#003366] hover:text-white
+               transition-colors duration-300"
+                        >
+                            <Youtube size={18} />
+                            And More Visit Our YouTube Channel
+                        </a>
+                    </div>
                     {/* Aircraft Training */}
                     <section id="aircraft" className="scroll-mt-24">
                         <h2 className="text-xl font-serif font-bold text-[#003366] mb-4 flex items-center gap-2">
@@ -216,19 +357,7 @@ export default function TrainingPlacementClient() {
                             ))}
                         </div>
                     </section>
-                    <div className="mt-6 flex justify-start">
-                        <a
-                            href="https://www.youtube.com/@kricollege"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold uppercase tracking-wide
-               bg-[#D4AF37] text-[#003366] hover:bg-[#003366] hover:text-white
-               transition-colors duration-300"
-                        >
-                            <Youtube size={18} />
-                            Visit Our YouTube Channel
-                        </a>
-                    </div>
+
 
                     {/* Airport Training */}
                     <section id="airport" className="scroll-mt-24">
@@ -396,87 +525,7 @@ export default function TrainingPlacementClient() {
                             </div>
                         </div>
                     </section>
-                    <section id="placement" className="scroll-mt-24">
-                        <h2 className="text-xl font-serif font-bold text-[#003366] mb-6">Our Top Placement</h2>
 
-                        <div className="max-w-7xl mx-auto">
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {[
-
-                                    {
-                                        title: "ISHA PRIYADHARSHINI.S",
-                                        image: "/images/gallery4.jpg"
-                                    },
-                                    {
-                                        title: "AMJATH HUSSAIN.jpg",
-                                        image: "/images/AMJATH HUSSAIN.jpg"
-                                    },
-                                    {
-                                        title: "SANJAY KUMAR.V",
-                                        image: "/images/SANJAY KUMAR.V.png"
-                                    },
-                                    {
-                                        title: "JAMMUNA",
-                                        image: "/images/JAMMUNA.png"
-                                    },
-                                    {
-                                        title: "PRAKASH",
-                                        image: "/images/PRAKASH.png"
-                                    },
-                                    {
-                                        title: "SWETHA.S",
-                                        image: "/images/SWETHA.S.png"
-                                    },
-                                    {
-                                        title: "MUSTHAFA KAMAL BATCHA.A",
-                                        image: "/images/gallery1.jpg"
-                                    },
-
-
-                                    {
-                                        title: "ATCHAYA.S",
-                                        image: "/images/ATCHAYA.S.png"
-                                    },
-                                    {
-                                        title: "RITHIKA",
-                                        image: "/images/RITHIKA.png"
-                                    },
-                                    {
-                                        title: "SHERIFF.A",
-                                        image: "/images/SHERIFF.A.png"
-                                    },
-                                    {
-                                        title: "ESWAR. M.R",
-                                        image: "/images/ESWAR. M.R.png"
-                                    },
-                                    {
-                                        title: "ROSHAN.J",
-                                        image: "/images/ROSHAN.J.png"
-                                    },
-                                    {
-                                        title: "SWETHA.S",
-                                        image: "/images/MOHAMED ARSADH.png"
-                                    },
-                                    {
-                                        title: "AMEER ATHIFF.A",
-                                        image: "/images/AMEER ATHIFF.A.png"
-                                    },
-
-
-
-                                ].map((item, i) => (
-                                    <div key={i} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border-t-4 border-yellow-500">
-                                        {item.image && (
-                                            <img src={encodeURI(item.image)} alt={item.title} className="w-full h-80 object-cover" />
-                                        )}
-                                        <div className="p-2 flex justify-center">
-                                            <h3 style={brandTextColor} className="text-lg font-bold mb-2 text-center">{item.title}</h3>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
 
                     {/* Govt Exam Support */}
                     <section id="govt-exams" className="scroll-mt-24">

@@ -36,7 +36,7 @@ const AchievementsClient = () => {
             title: "Defense & Armed Forces",
             icon: <Shield className="w-8 h-8 text-yellow-500" />,
             description: "Instilling discipline and patriotism through interactions with defense personnel.",
-            image: "/images/Defense Armed Forces.png",
+            image: "/images/Defense Armed Forces1.png",
             points: [
                 "Senior Army Officers delivered keynotes on discipline and leadership.",
                 "Direct interactions providing professional excellence inspiration.",
@@ -105,7 +105,7 @@ const AchievementsClient = () => {
         {
             title: "Appreciation from Military Officer",
             subtitle: "Mr. Manikandan",
-            image: "/images/Defense Armed Forces.png"
+            image: "/images/Defense Armed Forces1.png"
         },
         {
             title: "Appreciation from Meenakshi Matriculation",
@@ -214,6 +214,7 @@ const AchievementsClient = () => {
                                     src={encodeURI(item.image)}
                                     alt={item.title}
                                     className="relative z-10 w-full  md:h-80 object-cover rounded-lg shadow-lg border border-slate-200 bg-white"
+                                    onClick={() => setOpenImage(item.image)}
                                 />
                             </div>
                         </div>

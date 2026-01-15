@@ -16,30 +16,33 @@ export default function FounderMessage() {
                                     className="w-full max-w-[200px] h-auto mx-auto"
                                 />
                             </div>
-                            <div className="mt-6 text-center md:text-left">
-                                <h3 className="text-xl font-serif font-semibold text-[#003366] leading-tight">
-                                    Er. K. Jaffer Sheriff
-                                </h3>
+                           <div className="mt-6 text-center md:text-left">
+                                    {/* Name */}
+                                    <h3 className="text-[15px] font-serif font-semibold text-[#003366] leading-snug tracking-wide">
+                                        Er. K. Jaffer Sheriff
+                                    </h3>
 
-                                <p className="mt-1 text-sm text-gray-700 font-medium">
-                                    Aircraft Engineer <span className="text-gray-500">(Ex–Dubai Airports)</span>
-                                </p>
-
-                                <div className="mt-3 space-y-1">
-                                    <p className="text-sm text-gray-600">
-                                        Founder & Chief Instructor, KRI College
+                                    {/* Designation */}
+                                    <p className="mt-1 text-[10px] text-yellow-500 font-medium">
+                                        Aircraft Engineer (Ex–Dubai Airports)
                                     </p>
 
-                                    <p className="text-sm text-gray-600">
-                                        National President, SIF – India
+                                    {/* Roles */}
+                                    <div className="mt-2 space-y-1">
+                                        <p className="text-[10px] text-gray-600 font-medium">
+                                            Founder &amp; Chief Instructor, KRI College
+                                        </p>
+
+                                        <p className="text-[10px] text-gray-600 font-medium">
+                                            National President, SIF – India
+                                        </p>
+                                    </div>
+
+                                    {/* Award */}
+                                    <p className="mt-3 text-[11px] text-gray-500 italic leading-relaxed border-l-2 border-[#003366]/40 pl-3">
+                                        Dr. A. P. J. Abdul Kalam Awardee for Social Service
                                     </p>
                                 </div>
-
-                                <p className="mt-3 text-sm text-gray-500 italic">
-                                    Dr. A. P. J. Abdul Kalam Awardee for Social Service
-                                </p>
-                            </div>
-
 
                         </div>
 
@@ -51,7 +54,7 @@ export default function FounderMessage() {
                                 </p>
                             </div>
 
-                            <div className="space-y-4 text-gray-700 text-sm md:text-base leading-relaxed text-left">
+                            <div className="space-y-4 text-gray-700 text-sm md:text-base leading-relaxed text-left mb-5">
                                 <p className="font-bold text-[#003366]">
                                     Dear Students and Aspiring Aviation Professionals,
                                 </p>

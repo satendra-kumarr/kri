@@ -4,24 +4,38 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-    BookOpen,
-    GraduationCap,
-    CheckCircle,
-    ChevronRight,
-    ChevronDown,
     Plane,
     Wrench,
     Briefcase,
-    Award,
-    Zap,
-    HelpCircle,
-    Phone,
-    Download,
+    CheckCircle,
+    ChevronRight,
+    ChevronDown,
     ScrollText,
-    User
+    Zap,
 } from 'lucide-react';
 import { useEnquiry } from '../context/EnquiryContext';
 
+
+const ApplyNowButton = ({ course }: { course: string }) => {
+    const { openModal } = useEnquiry();
+
+    return (
+        <button
+            onClick={() =>
+                openModal({
+                    type: 'admission',
+                    course: course,
+                })
+            }
+            className="w-full mt-4 bg-[#003366] text-white font-bold py-3 px-4 uppercase text-xs tracking-wide rounded-sm 
+                       hover:bg-[#D4AF37] hover:text-[#003366] transition-all duration-300 
+                       flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+        >
+            <ChevronRight size={16} className="animate-pulse" />
+            Apply Now for {course}
+        </button>
+    );
+};
 
 export default function CoursesClient() {
     // For active scroll highlighting
@@ -163,7 +177,9 @@ export default function CoursesClient() {
                                 <p className="text-sm text-gray-800 leading-7 text-justify">
                                     The following undergraduate programs are offered in collaboration with <strong>Alagappa University</strong> (A State University accredited with NAAC A++). These programs are designed to provide a strong academic foundation combined with practical industry training.
                                 </p>
+
                             </div>
+
                         </div>
 
 
@@ -217,7 +233,9 @@ export default function CoursesClient() {
                                             <li>Aviation Safety & Security Officer</li>
                                             <li>Airline Customer Service Executive</li>
                                         </ul>
+                                        <ApplyNowButton course="B.Sc. Aviation" />
                                     </div>
+
                                     <div className="bg-white p-4 border border-gray-200 h-fit shadow-inner">
                                         <h4 className="font-bold text-[#003366] text-sm uppercase mb-3">Key Subjects</h4>
                                         <ul className="space-y-2 text-sm text-gray-700">
@@ -270,6 +288,7 @@ export default function CoursesClient() {
                                         <li>GDS Ticketing & Reservations</li>
                                     </ul>
                                 </div>
+                                <ApplyNowButton course="B.Sc. Aviation" />
                             </div>
 
                             {/* Course 2: B.Sc AMS */}
@@ -320,6 +339,7 @@ export default function CoursesClient() {
                                             <li>Technical Records Officer</li>
                                             <li>Quality Control Assistant (Aviation)</li>
                                         </ul>
+                                        <ApplyNowButton course="B.Sc. Aviation" />
                                     </div>
                                     <div className="bg-white p-4 border border-gray-200 h-fit shadow-inner">
                                         <h4 className="font-bold text-[#003366] text-sm uppercase mb-3">Key Subjects</h4>
@@ -371,6 +391,7 @@ export default function CoursesClient() {
                                         <li>Avionics & Electrical Systems</li>
                                     </ul>
                                 </div>
+                                <ApplyNowButton course="B.Sc. Aircraft Maintenance" />
                             </div>
 
                             {/* Course 3: BBA */}
@@ -420,6 +441,7 @@ export default function CoursesClient() {
                                             <li>Air Cargo & Logistics Manager</li>
                                             <li>Travel & Tourism Manager</li>
                                         </ul>
+                                        <ApplyNowButton course="BBA Airline & Airport Management" />
                                     </div>
                                     <div className="bg-white p-4 border border-gray-200 h-fit shadow-inner">
                                         <h4 className="font-bold text-[#003366] text-sm uppercase mb-3">Key Subjects</h4>
@@ -470,6 +492,7 @@ export default function CoursesClient() {
                                         <li>Air Cargo & Logistics</li>
                                         <li>Customer Service Excellence</li>
                                     </ul>
+                                    <ApplyNowButton course="BBA Airline Management" />
                                 </div>
                             </div>
 
@@ -540,6 +563,7 @@ export default function CoursesClient() {
                                             </div>
                                         ))}
                                     </div>
+                                    <ApplyNowButton course="Diploma & Certificate Courses" />
                                 </div>
                             </div>
 
@@ -576,6 +600,7 @@ export default function CoursesClient() {
                                         </div>
                                     ))}
                                 </div>
+                                <ApplyNowButton course="1 Year Diploma" />
                             </div>
 
                             {/* 6 Months Certificate */}
@@ -619,7 +644,9 @@ export default function CoursesClient() {
                                             </div>
                                         ))}
                                     </div>
+                                    <ApplyNowButton course="6-Month Certificate Courses" />
                                 </div>
+
                             </div>
 
                             {/* MOBILE VIEW: DOCUMENT STYLE MATCHING DESKTOP */}
@@ -655,6 +682,7 @@ export default function CoursesClient() {
                                         </div>
                                     ))}
                                 </div>
+                                <ApplyNowButton course="6-Month Certificate" />
                             </div>
 
                         </div>

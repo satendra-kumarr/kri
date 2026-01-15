@@ -32,7 +32,7 @@ export default function PressReleaseClient() {
             title: "KRI College Pioneers New Aviation Curriculum",
             publication: "The Hindu",
             date: "October 15, 2024",
-            image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/press.png",
             category: "Academics",
             description: "Madurai-based KRI College has introduced a specialized curriculum for Aircraft Maintenance Engineering, focusing on real-world Hangar training."
         },
@@ -41,7 +41,7 @@ export default function PressReleaseClient() {
             title: "100% Placement Achievement for Graduation Batch 2024",
             publication: "Times of India",
             date: "September 2, 2024",
-            image: "https://images.unsplash.com/photo-1585829365234-781f8c42a42e?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/press2.png",
             category: "Placement",
             description: "A major milestone reached by King Rashid International College with all its aviation management students securing roles in top airlines."
         },
@@ -50,7 +50,7 @@ export default function PressReleaseClient() {
             title: "KRI Founder Receives Prestigious Excellence Award",
             publication: "Dina Thanthi",
             date: "August 20, 2024",
-            image: "https://images.unsplash.com/photo-1546422122-01865dc2a921?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/press3.png",
             category: "Achievement",
             description: "Er. K. Jaffer Sheriff was honored at the State Level Education Summit for his contributions to aviation education in South India."
         },
@@ -59,7 +59,7 @@ export default function PressReleaseClient() {
             title: "New Fleet Addition: Aeronca Sedan 15AC Joins KRI",
             publication: "The New Indian Express",
             date: "July 12, 2024",
-            image: "https://images.unsplash.com/photo-1588611911307-28ece2c7555e?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/press4.png",
             category: "Campus",
             description: "The college has expanded its training fleet with the acquisition of a historic Aeronca Sedan 15AC aircraft for student observation."
         },
@@ -68,7 +68,7 @@ export default function PressReleaseClient() {
             title: "Seminar on Future Careers in Global Aviation",
             publication: "The Economic Times",
             date: "June 05, 2024",
-            image: "https://images.unsplash.com/photo-1572949645841-39450c05f133?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/press5.png",
             category: "Events",
             description: "Leading experts from Dubai Airports shared insights on international career prospects for aspiring aircraft engineers."
         },
@@ -77,7 +77,7 @@ export default function PressReleaseClient() {
             title: "KRI Students Win National Aerospace Hackathon",
             publication: "The Deccan Herald",
             date: "May 22, 2024",
-            image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/press6.png",
             category: "Achievement",
             description: "A team of five students from KRI College won the top prize for their innovative design in airport ground handling efficiency."
         }

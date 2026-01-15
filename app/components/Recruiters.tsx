@@ -16,10 +16,10 @@ export default function Recruiters() {
     <section className="py-10 bg-white border-b border-gray-200">
       <div className="container-custom">
         <h3 className="text-center text-[#003366] font-bold uppercase tracking-widest text-sm md:text-lg mb-8">
-          Our Top Placement Partners
+          Our Top Placement Partners 
         </h3>
 
-        <div className="flex flex-wrap justify-center gap-6 md:gap-16 items-center">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-16 items-center ">
           {logos.map((logo, idx) => (
             <div
               key={idx}

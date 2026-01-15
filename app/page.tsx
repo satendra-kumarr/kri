@@ -39,8 +39,9 @@ export default function Home() {
                 <div className="w-full h-[350px] md:h-[500px] lg:h-[600px] relative overflow-hidden">
                     <iframe
                         width="100%"
-                        height="100%"
+                        height="100%"                       
                         src="https://www.youtube.com/embed/8hz4v8aEkl8?autoplay=1&mute=1&controls=0&loop=1&playlist=8hz4v8aEkl8&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3"
+                        
                         title="KRI College Video"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -57,7 +58,7 @@ export default function Home() {
                     KRI College of Aeronautics
                 </h1>
                 <p className="text-gray-600 font-medium text-xs md:text-base uppercase tracking-widest">
-                    Madurai - Tamil Nadu/New Delhi
+                    Madurai - Tamil Nadu - New Delhi
                 </p>
                 <div className="w-16 h-1 md:w-24 md:h-1 bg-[#D4AF37] mx-auto mt-3 md:mt-4"></div>
             </div>
