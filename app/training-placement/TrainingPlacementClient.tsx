@@ -318,22 +318,31 @@ export default function TrainingPlacementClient() {
                                         </div>
                                     </div>
                                 ))}
+                                {/* YouTube Channel Link as the last grid item */}
+                                <div className="bg-gradient-to-br from-[#003366] to-[#002244] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border-2 border-[#D4AF37] flex items-center justify-center p-4 min-h-[200px] transform hover:-translate-y-1">
+                                    <a
+                                        href="https://www.youtube.com/@kricollege"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col items-center gap-4 text-center w-full"
+                                    >
+                                        <div className="bg-white/10 p-5 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#003366] transition-all duration-500 shadow-inner group-hover:shadow-lg ring-1 ring-[#D4AF37]/30 group-hover:ring-[#003366]">
+                                            <Youtube size={36} className="group-hover:scale-110 transition-transform duration-300" />
+                                        </div>
+                                        <div>
+                                            <span className="block text-[10px] uppercase tracking-widest text-gray-300 mb-1 group-hover:text-white transition-colors">Discover More</span>
+                                            <span className="text-sm md:text-base font-serif font-bold uppercase tracking-wide text-white group-hover:text-[#D4AF37] transition-colors duration-300">
+                                                Visit Our<br />YouTube Channel
+                                            </span>
+                                        </div>
+                                        <div className="mt-2 text-[#D4AF37] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                            <ArrowRight size={20} />
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </section>
-                    <div className="mt-6 flex justify-start">
-                        <a
-                            href="https://www.youtube.com/@kricollege"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold uppercase tracking-wide
-               bg-[#D4AF37] text-[#003366] hover:bg-[#003366] hover:text-white
-               transition-colors duration-300"
-                        >
-                            <Youtube size={18} />
-                            And More Visit Our YouTube Channel
-                        </a>
-                    </div>
                     {/* Aircraft Training */}
                     <section id="aircraft" className="scroll-mt-24">
                         <h2 className="text-xl font-serif font-bold text-[#003366] mb-4 flex items-center gap-2">

@@ -9,7 +9,7 @@ import {
 import { useEnquiry } from '../context/EnquiryContext';
 import { size } from 'zod';
 
-import { useRouter } from "next/navigation";
+
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,11 +19,7 @@ export default function Header() {
 
   const { openModal } = useEnquiry();
 
-  const router = useRouter();
 
-  const handleQuickLinksClick = () => {
-    router.push("/scholarship");
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -85,7 +81,7 @@ export default function Header() {
       href: "/training-placement"
     },
     { label: "Achievements", hasDropdown: false, href: "/achievements" },
-    { label: "Quick Links", hasDropdown: false, href: "/quick-links" }
+    { label: "Scholarship", hasDropdown: false, href: "/scholarship" }
 
   ];
 
@@ -155,12 +151,12 @@ export default function Header() {
                 <span>info@kri.org.in</span>
               </a>
               {/* ===== Button in Desktop Header ===== */}
-              <button
-                onClick={handleQuickLinksClick}
+              <Link
+                href="/quick-links"
                 className="bg-[#D4AF37] text-[#003366] px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wide hover:bg-yellow-400 transition"
               >
-                Scholarship
-              </button>
+                Quick Links
+              </Link>
 
 
             </div>

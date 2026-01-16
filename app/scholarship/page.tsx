@@ -112,7 +112,7 @@ const faqs = [
 // Component
 // ----------------------------------------------------------------------------
 export default function ScholarshipPage() {
-    const [activeTab, setActiveTab] = useState("schemes");
+    const [activeTab, setActiveTab] = useState("winners");
     const [selectedYear, setSelectedYear] = useState("2021");
 
     const currentYearData = scholarshipData.find((d) => d.year === selectedYear);
@@ -188,15 +188,6 @@ export default function ScholarshipPage() {
                     {/* Tabs */}
                     <div className="flex flex-wrap border-b-2 border-[#003366]">
                         <button
-                            onClick={() => setActiveTab("schemes")}
-                            className={`flex-1 md:flex-none px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 ${activeTab === "schemes"
-                                ? "bg-[#003366] text-white"
-                                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                                }`}
-                        >
-                            Scholarship Schemes
-                        </button>
-                        <button
                             onClick={() => setActiveTab("winners")}
                             className={`flex-1 md:flex-none px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 ${activeTab === "winners"
                                 ? "bg-[#003366] text-white"
@@ -204,6 +195,15 @@ export default function ScholarshipPage() {
                                 }`}
                         >
                             Roll of Honor (Beneficiaries)
+                        </button>
+                        <button
+                            onClick={() => setActiveTab("schemes")}
+                            className={`flex-1 md:flex-none px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 ${activeTab === "schemes"
+                                ? "bg-[#003366] text-white"
+                                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                }`}
+                        >
+                            Scholarship Schemes
                         </button>
                     </div>
 

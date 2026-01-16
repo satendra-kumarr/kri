@@ -2,13 +2,11 @@
 
 'use client';
 
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-
 import { useEnquiry } from '../context/EnquiryContext';
-
 import {
     Building2,
     Target,
@@ -40,6 +38,257 @@ import {
     Factory,
     Rocket
 } from 'lucide-react';
+
+// Define the Leadership Data Type
+type Leader = {
+    id: string;
+    name: string;
+    qualification?: string;
+    role: string;
+    role2?: string;
+    image: string;
+    description: (string | React.ReactNode)[];
+    extraTitle?: React.ReactNode;
+};
+
+// Extracted Data
+const leadershipTeam: Leader[] = [
+    {
+        id: 'founder',
+        name: 'Er. K. Jaffer Sheriff',
+        role: 'Founder',
+        role2: 'Chief Instructor',
+        image: '/images/founder.png',
+        description: [
+            "A visionary leader with deep roots in global aviation and youth development.",
+            <>Jaffer Sheriff is a qualified <strong>Aircraft Maintenance Engineer</strong> and an experienced <strong>Aircraft Engineer (Ex-Dubai Airports)</strong>, as well as a dedicated social worker. With strong technical expertise in aircraft maintenance and global aviation operations, he founded the <strong>King Rashid International College of Aeronautics</strong> to provide industry-oriented aviation education. As the Founder of Sheriff Indian Foundation and a recipient of an <strong>Honorary Doctorate for Social Service</strong>, he is committed to empowering students with practical skills, discipline, and international career opportunities in aviation.</>
+        ]
+    },
+    {
+        id: 'chairman',
+        name: 'Mrs. Sameera Sheriff',
+        qualification: '(BA & B.Ed)',
+        role: 'chairman',
+        role2: 'King Rashid Internatonal College (KRI College)',
+        image: '/images/chairman.png',
+        description: [
+            <><strong>Sanfa Sameera Sheriff</strong>, Chairman of <strong>King Rashid International College of Aeronautics</strong>, holds a <strong>BA and B.Ed</strong> and brings valuable teaching experience along with a deep commitment to social service. Her strong academic background, passion for education, and dedication to community welfare play a vital role in promoting quality learning, student empowerment, and inclusive growth within the institution.</>
+        ]
+    },
+    {
+        id: 'md',
+        name: 'Adv. Althaf Sherif',
+        qualification: '(B.E., M.B.A., LL. B)',
+        role: 'Senior Advocate',
+        role2: 'Madurai Bench, Madras High Court',
+        image: '/images/Althaf Sheri.png',
+        extraTitle: <h1 className="font-bold text-black text-lg mb-1 relative z-10 leading-snug">Managing Director & Head – Legal Department, The <span className="text-sm">King Rashid International College (KRI College)</span></h1>,
+        description: [
+            <>Advocate Althaf Sheriff is a distinguished legal professional with over <strong>7 years of experience as a Senior Advocate</strong> practicing at the <strong>Madurai Bench of the Madras High Court.</strong> With a strong multidisciplinary academic background in <strong>Engineering, Management, and Law,</strong> he brings comprehensive legal insight and strategic expertise to both judicial practice and institutional governance.</>,
+            <>At <strong>King Rashid International College,</strong> Advocate Althaf Sheriff serves as the <strong>Correspondent and Head of the Legal Department,</strong> where he oversees all legal, compliance, and statutory matters of the institution. His responsibilities include legal advisory, regulatory compliance, documentation, institutional correspondence, and representation before legal and regulatory authorities.</>,
+            <>Known for his professionalism, ethical standards, and analytical approach, he plays a crucial role in safeguarding the institution’s legal integrity while supporting transparent administration and policy implementation. His leadership strengthens the college’s legal framework and ensures adherence to educational and statutory regulations.</>
+        ]
+    },
+    {
+        id: 'gs',
+        name: 'Mr. Surya',
+        qualification: '(M.Tech)',
+        role: 'Board Director and General Secretary',
+        role2: 'King Rashid Internatonal College (KRI College)',
+        image: '/images/surya.png',
+        description: [
+            <>Mr. Surya, M.Tech, serves as the <strong>General Secretary of King Rashid International College,</strong> where he plays a key role in the institution’s academic administration, strategic coordination, and studentfocused initiatives. With a strong technical background and a deep commitment to educational excellence, he actively supports the college’s mission to deliver quality education aligned with industry and global standards.</>,
+            <>As General Secretary, Mr. Surya oversees institutional planning, policy implementation, interdepartmental coordination, and academic governance. He works closely with the management, faculty, and administrative teams to ensure smooth operations, regulatory compliance, and continuous institutional improvement.</>,
+            <>Holding a <strong>Master of Technology (M.Tech)</strong> degree, Mr. Surya brings analytical expertise, leadership skills, and a solution-oriented approach to his role. He strongly believes in <strong>discipline, innovation, and student empowerment,</strong> and consistently encourages initiatives that enhance skill development, research culture, and professional ethics among students.</>,
+            <>His vision focuses on strengthening academic quality, promoting transparent administration, and supporting students in achieving successful careers in aviation, engineering, and allied professional fields.</>
+        ]
+    },
+    {
+        id: 'pro',
+        name: 'Mr. Aboobacker Rafeek',
+        qualification: '( B.Com.)',
+        role: 'Public Relations Officer',
+        role2: 'King Rashid International College (KRI College)',
+        image: '/images/Mr. Aboobacker.png',
+        description: [
+            <>Mr. Aboobacker Rafeek serves as the <strong>Public Relations Officer of King Rashid International College,</strong> bringing with him over <strong>12 years of international professional experience</strong> as a <strong>Supervisor in the Harbour and Exports sector in the United Arab Emirates.</strong> His extensive exposure to global operations, stakeholder coordination, and public dealings adds strong value to the institution's outreach and communication efforts.</>,
+            <>Holding qualifications in <strong>Commerce (B.Com)</strong> Mr. Rafeek combines managerial expertise with effective communication and people-oriented skills. In his role at KRI College, he actively manages public relations, institutional communication, student and parent interactions, industry coordination, and community engagement.</>,
+            <>A committed <strong>social worker,</strong> Mr. Rafeek believes in serving society through education, awareness, and community development initiatives. His professional discipline, international experience, and service mindset contribute significantly to strengthening the college's public image and stakeholder relationships.</>
+        ]
+    },
+    {
+        id: 'principal',
+        name: 'Ms. Ahila',
+        qualification: '( B.A., M.A., M.A., B.Ed)',
+        role: 'Principal',
+        role2: 'King Rashid International College (KRI College)',
+        image: '/images/Ms. Ahila.png',
+        description: [
+            <>Mrs. Ahila is a seasoned academician and dedicated education leader, currently serving as the <strong>Principal of King Rashid International College.</strong> With over <strong>15 years of rich university-level experience,</strong> she brings deep academic insight, administrative excellence, and a strong commitment to student-centered education.</>,
+            <>Holding multiple postgraduate qualifications along with a <strong>Bachelor of Education (B.Ed),</strong> Ms. Ahila has contributed extensively to <strong>teaching, curriculum development, academic governance, and institutional management.</strong> Her leadership focuses on maintaining high academic standards, fostering discipline, and promoting holistic development among students</>,
+            <>Beyond academics, Ms. Ahila is an active <strong>social worker,</strong> deeply involved in educational awareness, community development, and student welfare initiatives. She believes education should empower individuals intellectually, ethically, and socially.</>,
+            <>As Principal, she works closely with management, faculty, and stakeholders to strengthen academic quality, ensure regulatory compliance, and prepare students for professional success and responsible citizenship.</>
+        ]
+    },
+    {
+        id: 'professor',
+        name: 'Ms. Kishori',
+        qualification: '(B.A., M.A., B.Ed., M.Ed)',
+        role: 'Professor & Student Coordinator',
+        role2: 'King Rashid Internatonal College (KRI College)',
+        image: '/images/Ms. Kishori.png',
+        description: [
+            <>Ms. Kishori is a dedicated academic professional currently serving as a <strong>Professor and Student Coordinator at King Rashid Internatonal College.</strong> With over <strong>4 years of teaching experience,</strong> she brings strong academic knowledge, efectve pedagogy, and a student-focused approach to higher educaton.</>,
+            <>Holding advanced qualifcatons in <strong>Arts and Educaton,</strong> including <strong>B.A., M.A., B.Ed.,</strong> and M.Ed, Ms. Kishori is actvely involved in classroom teaching, academic mentoring, and curriculum support. As Student Coordinator, she plays a key role in guiding students, addressing academic concerns, supportng student actvites, and fostering a positve learning environment.</>,
+            <>She is commited to promotng <strong>discipline, academic excellence, and holistc student development.</strong> Her teaching philosophy emphasizes clarity of concepts, inclusive learning, and contnuous academic improvement.</>
+        ]
+    },
+    {
+        id: 'physio',
+        name: 'Mr. Ahamed Fazith',
+        qualification: '( B.P.T)',
+        role: 'Physiotherapist & Student Fitness Head',
+        role2: 'King Rashid International College (KRI College)',
+        image: '/images/Mr. Ahamed.png',
+        description: [
+            <>Mr. Ahamed Fazith, B.P.T, is a qualified <strong>Physiotherapist</strong> with over <strong>4 years of professional and clinical experience.</strong> He has gained valuable hands-on training as an <strong>Intern physiotherapist in Madurai Rajaji Government hospital</strong> where he worked with diverse patient cases and rehabilitation programs.</>,
+            <>At <strong>The King Rashid International College,</strong> he serves as the <strong>Physiotherapist and Sports Coordinator,</strong> playing a vital role in promoting student health, physical fitness, and sports development. He provides physiotherapy support, injury prevention guidance, rehabilitation assistance, and fitness awareness programs for students.</>,
+            <>With a strong interest in <strong>sports medicine and student wellness,</strong> Mr. Fazith actively encourages a healthy lifestyle, discipline, and physical well-being among students. His approach focuses on preventive care, performance enhancement, and holistic development.</>
+        ]
+    },
+    {
+        id: 'admin',
+        name: 'Mrs. Saburan Rilavana',
+        role: 'Admin Head',
+        role2: 'B.com holder',
+        image: '/images/Rilvana.jpeg',
+        description: [
+            <><strong>Mrs. Saburan Rilavana</strong> is an experienced <strong>Administrative Head</strong> at <strong>King Rashid International College of Aeronautics (KRI)</strong>, with over <strong>4+ years of expertise</strong> in academic administration, institutional coordination, student management, and operational leadership. Known for disciplined approach, effective communication, and strong organizational skills, she plays a key role in ensuring smooth administrative functioning and supporting the college’s academic excellence and growth.</>
+        ]
+    }
+];
+
+const LeadershipMasonry = () => {
+    // Initialize with mobile layout (1 column) excluding founder for SEO/SSR
+    const [columns, setColumns] = useState<Leader[][]>([
+        leadershipTeam.filter(m => m.id !== 'founder'),
+        []
+    ]);
+
+    useEffect(() => {
+        const calculateColumns = () => {
+            const width = window.innerWidth;
+            const numCols = width < 768 ? 1 : 2;
+
+            // Filter out founder logic is handled in render, but for columns we only want non-founders
+            const otherMembers = leadershipTeam.filter(m => m.id !== 'founder');
+
+            // If 1 column, just return all items in the first array
+            if (numCols === 1) {
+                setColumns([otherMembers, []]);
+                return;
+            }
+
+            // Distribute items for 2 columns
+            // Simple approach: "fill smallest projected height" with text length estimation for better balance.
+
+            const newCols: Leader[][] = [[], []];
+            const colHeights = [0, 0]; // Approximate height counter
+
+            otherMembers.forEach(member => {
+                // Estimate height: base + text length
+                // roughly: image (fixed) + name/titles (fixed) + description (variable)
+                // Let's count characters in description
+                let textLen = 0;
+                member.description.forEach(d => {
+                    if (typeof d === 'string') textLen += d.length;
+                    else {
+                        // ReactNode - assume some average length
+                        textLen += 150;
+                    }
+                });
+
+                const estimatedHeight = 400 + (textLen * 0.5); // Arbitrary units
+
+                // Find shortest column
+                const shortestColIndex = colHeights[0] <= colHeights[1] ? 0 : 1;
+
+                newCols[shortestColIndex].push(member);
+                colHeights[shortestColIndex] += estimatedHeight;
+            });
+
+            setColumns(newCols);
+        };
+
+        calculateColumns();
+        window.addEventListener('resize', calculateColumns);
+        return () => window.removeEventListener('resize', calculateColumns);
+    }, []);
+
+    // Helper to render a card
+    const renderCard = (member: Leader) => (
+        <div key={member.id} className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group mb-6 w-full break-inside-avoid">
+            <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
+            <div className="flex gap-4 mb-4">
+                <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
+                    <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                    />
+                </div>
+                <div>
+                    <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">
+                        {member.name}
+                        {member.qualification && <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>{member.qualification}</span>}
+                    </h4>
+                    <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">{member.role}</div>
+                    {member.role2 && <p className="text-[10px] text-gray-500">{member.role2}</p>}
+                </div>
+            </div>
+
+            {member.extraTitle && <div className="mb-4">{member.extraTitle}</div>}
+
+            {member.description.map((desc, idx) => (
+                <p key={idx} className="text-xs text-gray-600 leading-relaxed mb-4">
+                    {desc}
+                </p>
+            ))}
+        </div>
+    );
+
+    const founder = leadershipTeam.find(m => m.id === 'founder');
+
+    // If only 1 column (mobile), render just one vertical stack (founder + others)
+    // We check columns[1].length === 0 as valid proxy for 1-column mode
+    if (columns[1].length === 0) {
+        return (
+            <div className="flex flex-col gap-6">
+                {founder && renderCard(founder)}
+                {columns[0].map(renderCard)}
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex flex-col gap-6">
+            {/* Full Width Founder Card */}
+            {founder && renderCard(founder)}
+
+            <div className="flex flex-row gap-6 items-start">
+                <div className="flex-1 flex flex-col gap-0">
+                    {columns[0].map(renderCard)}
+                </div>
+                <div className="flex-1 flex flex-col gap-0">
+                    {columns[1].map(renderCard)}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
 
 
 export default function InstitutionPage() {
@@ -236,346 +485,8 @@ export default function InstitutionPage() {
                         <p className="text-sm text-gray-700 mb-6 italic border-l-4 border-[#D4AF37] pl-4">
                             &quot;The leadership at King Rashid International College of Aeronautics is driven by aviation expertise, academic excellence, and a commitment to national development.&quot;
                         </p>
-                        <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group mb-6">
-                            <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                            <div className="flex gap-4 mb-4">
-                                <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                    <Image
-                                        src="/images/founder.png"
-                                        alt="Er. K. Jaffer Sheriff"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Er. K. Jaffer Sheriff</h4>
-                                    <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Founder </div>
-                                    <p className="text-[10px] text-gray-500">Chief Instructor</p>
-                                </div>
-                            </div>
 
-                            <p className="text-xs  text-gray-600 leading-relaxed mb-4">
-                                A visionary leader with deep roots in global aviation and youth development.
-                            </p>
-                            <p className="text-xs  text-gray-600 leading-relaxed mb-4">
-                                Jaffer Sheriff is a qualified <strong>Aircraft Maintenance Engineer</strong> and an experienced
-                                <strong> Aircraft Engineer (Ex-Dubai Airports)</strong>, as well as a dedicated social worker.
-                                With strong technical expertise in aircraft maintenance and global aviation operations, he founded
-                                the <strong>King Rashid International College of Aeronautics</strong> to provide industry-oriented aviation education.
-                                As the Founder of Sheriff Indian Foundation and a recipient of an <strong>Honorary Doctorate for Social Service</strong>, he is committed to empowering students with practical skills,
-                                discipline, and international career opportunities in aviation.
-                            </p>
-
-
-                            {/* <div className="relative h-30 w-full bg-gray-200 rounded-sm overflow-hidden">
-                                    <Image
-                                        src="/images/founder-with-minister.png"
-                                        alt="Er. K. Jaffer Sheriff - Visionary"
-                                        fill
-                                        className="object-cover object-top"
-                                    />
-                                </div> */}
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            {/* Founder Card */}
-
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/chairman.png"
-                                            alt="Mrs. Sameera Sheriff"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Mrs. Sameera Sheriff
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>(BA & B.Ed)</span>
-                                        </h4>
-
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">chairman </div>
-                                        <p className="text-[10px] text-gray-500">King Rashid Internatonal College (KRI College)</p>
-
-                                    </div>
-                                </div>
-
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    <strong>Sanfa Sameera Sheriff</strong>, Chairman of
-                                    <strong> King Rashid International College of Aeronautics</strong>, holds a
-                                    <strong> BA and B.Ed</strong> and brings valuable teaching experience along with a deep commitment to social service.
-                                    Her strong academic background, passion for education, and dedication to community welfare play a vital role in
-                                    promoting quality learning, student empowerment, and inclusive growth within the institution.
-                                </p>
-
-                            </div>
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/Rilvana.jpeg"
-                                            alt="Rilavana"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Mrs. Saburan Rilavana</h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Admin Head </div>
-                                        <p className="text-[10px] text-gray-500">B.com holder</p>
-
-                                    </div>
-                                </div>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    <strong>Mrs. Saburan Rilavana </strong> is an experienced <strong> Administrative Head </strong> at <strong>King Rashid International College of Aeronautics (KRI)</strong>, with over
-                                    <strong> 4+ years of expertise </strong> in academic administration, institutional coordination, student management,
-                                    and operational leadership. Known for disciplined approach, effective communication, and strong organizational skills,
-                                    she plays a key role in ensuring smooth administrative functioning and supporting the college’s academic excellence and growth.
-                                </p>
-
-                            </div>
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/Althaf Sheri.png"
-                                            alt="Adv. Althaf Sherif"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Adv. Althaf Sherif
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>(B.E., M.B.A., LL. B)</span></h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Senior Advocate</div>
-                                        <p className="text-[10px] text-gray-500">Madurai Bench, Madras High Court</p>
-                                    </div>
-                                </div>
-                                <h1 className="font-bold text-black text-lg mb-1 relative z-10 leading-snug">
-                                    Managing Director & Head – Legal Department, The <span className="text-sm">
-                                        King Rashid International College (KRI College)
-                                    </span>
-                                </h1>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Advocate Althaf Sheriff is a distinguished legal professional with over <strong>7 years of experience as a
-                                        Senior Advocate</strong>  practicing at the <strong>Madurai Bench of the Madras High Court. </strong> With a strong
-                                    multidisciplinary academic background in <strong>Engineering, Management, and Law,</strong> he brings
-                                    comprehensive legal insight and strategic expertise to both judicial practice and institutional
-                                    governance. </p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    At <strong>King Rashid International College,</strong> Advocate Althaf Sheriff serves as the <strong>Correspondent and  Head of the Legal Department,</strong>  where he oversees all legal, compliance, and statutory matters of
-                                    the institution. His responsibilities include legal advisory, regulatory compliance, documentation,
-                                    institutional correspondence, and representation before legal and regulatory authorities.
-                                </p>
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >Known for his professionalism, ethical standards, and analytical approach, he plays a crucial role in
-                                    safeguarding the institution’s legal integrity while supporting transparent administration and policy
-                                    implementation. His leadership strengthens the college’s legal framework and ensures adherence to
-                                    educational and statutory regulations.</p>
-
-                            </div>
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/surya.png"
-                                            alt="Mr. Surya"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Mr. Surya
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>(M.Tech)</span></h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Board Director and General Secretary</div>
-                                        <p className="text-[10px] text-gray-500">King Rashid Internatonal College (KRI College)</p>
-                                    </div>
-                                </div>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Mr. Surya, M.Tech, serves as the <strong>General Secretary of King Rashid International College,</strong>  where he
-                                    plays a key role in the institution’s academic administration, strategic coordination, and studentfocused initiatives. With a strong technical background and a deep commitment to educational
-                                    excellence, he actively supports the college’s mission to deliver quality education aligned with
-                                    industry and global standards. </p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    As General Secretary, Mr. Surya oversees institutional planning, policy implementation, interdepartmental coordination, and academic governance. He works closely with the management,
-                                    faculty, and administrative teams to ensure smooth operations, regulatory compliance, and
-                                    continuous institutional improvement. </p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >Holding a <strong>Master of Technology (M.Tech) </strong> degree, Mr. Surya brings analytical expertise, leadership
-                                    skills, and a solution-oriented approach to his role. He strongly believes in <strong>  discipline, innovation,
-                                        and student empowerment,</strong> and consistently encourages initiatives that enhance skill development,
-                                    research culture, and professional ethics among students.
-                                </p>
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >His vision focuses on strengthening academic quality, promoting transparent administration, and
-                                    supporting students in achieving successful careers in aviation, engineering, and allied professional
-                                    fields.</p>
-                            </div>
-
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/Ms. Ahila.png"
-                                            alt="Er. K. Jaffer Sheriff"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Ms. Ahila
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>( B.A., M.A., M.A., B.Ed)</span></h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Principal </div>
-                                        <p className="text-[10px] text-gray-500">King Rashid International College (KRI College)
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Mrs. Ahila is a seasoned academician and dedicated education leader, currently serving as the
-                                    <strong>Principal of King Rashid International College.</strong> With over <strong>15 years of rich university-level  experience,  </strong>
-                                    she brings deep academic insight, administrative excellence, and a strong commitment
-                                    to student-centered education.</p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">Holding multiple postgraduate qualifications along with a <strong>Bachelor of Education (B.Ed),</strong>  Ms. Ahila
-                                    has contributed extensively to <strong> teaching, curriculum development, academic governance, and
-                                        institutional management.</strong> Her leadership focuses on maintaining high academic standards,
-                                    fostering discipline, and promoting holistic development among students</p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >Beyond academics, Ms. Ahila is an active <strong>social worker,</strong>  deeply involved in educational awareness,
-                                    community development, and student welfare initiatives. She believes education should empower
-                                    individuals intellectually, ethically, and socially.
-                                </p>
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >As Principal, she works closely with management, faculty, and stakeholders to strengthen academic
-                                    quality, ensure regulatory compliance, and prepare students for professional success and
-                                    responsible citizenship.</p>
-                            </div>
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/Mr. Aboobacker.png"
-                                            alt="Mr. Aboobacker"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Mr. Aboobacker Rafeek
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>( B.Com.)</span></h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Public Relations Officer </div>
-                                        <p className="text-[10px] text-gray-500">King Rashid International College (KRI College)
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Mr. Aboobacker Rafeek serves as the <strong>Public Relations Officer of King Rashid International College,</strong>
-                                    bringing with him over <strong>12 years of international professional experience</strong> as a <strong>Supervisor in the
-                                        Harbour and Exports sector in the United Arab Emirates.</strong> His extensive exposure to global
-                                    operations, stakeholder coordination, and public dealings adds strong value to the institution’s
-                                    outreach and communication efforts.</p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">Holding qualifications in <strong> Commerce (B.Com)</strong> Mr. Rafeek combines managerial
-                                    expertise with effective communication and people-oriented skills. In his role at KRI College, he
-                                    actively manages public relations, institutional communication, student and parent interactions,
-                                    industry coordination, and community engagement.</p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >A committed <strong>social worker,</strong> Mr. Rafeek believes in serving society through education, awareness,
-                                    and community development initiatives. His professional discipline, international experience, and
-                                    service mindset contribute significantly to strengthening the college’s public image and stakeholder
-                                    relationships.
-                                </p>
-                            </div>
-
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/Ms. Kishori.png"
-                                            alt="Er. K. Jaffer Sheriff"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Ms. Kishori
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>(B.A., M.A., B.Ed., M.Ed)</span></h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Professor & Student Coordinator </div>
-                                        <p className="text-[10px] text-gray-500">King Rashid Internatonal College (KRI College)</p>
-                                    </div>
-                                </div>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Ms. Kishori is a dedicated academic professional currently serving as a  <strong> Professor and Student
-                                        Coordinator at King Rashid Internatonal College.</strong> With over  <strong>4 years of teaching experience,</strong>  she brings strong academic knowledge, efectve pedagogy, and a student-focused approach to higher educaton.
-                                </p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Holding advanced qualifcatons in  <strong> Arts and Educaton,</strong> including  <strong>B.A., M.A., B.Ed., </strong>and M.Ed, Ms. Kishori is actvely involved in classroom teaching, academic mentoring, and curriculum support. As Student Coordinator, she plays a key role in guiding students, addressing academic concerns,
-                                    supportng student actvites, and fostering a positve learning environment. </p>
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >She is commited to promotng <strong>discipline, academic excellence, and holistc student development.</strong>   Her teaching philosophy emphasizes clarity of concepts, inclusive learning, and contnuous
-                                    academic improvement.</p>
-
-                            </div>
-                            <div className="border border-gray-200 p-5 bg-white shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#003366] rounded-bl-full -mr-8 -mt-8"></div>
-                                <div className="flex gap-4 mb-4">
-                                    <div className="relative w-20 h-20 shrink-0 border-2 border-[#D4AF37] rounded-full overflow-hidden">
-                                        <Image
-                                            src="/images/Mr. Ahamed.png"
-                                            alt="Mr. Ahamed"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-[#003366] text-lg mb-1 relative z-10">Mr. Ahamed Fazith
-                                            <span className='text-[#003366] font-bold text-xs uppercase mb-1 pl-1'>( B.P.T)</span></h4>
-                                        <div className="text-[#D4AF37] font-bold text-xs uppercase mb-1">Physiotherapist & Student Fitness Head  </div>
-                                        <p className="text-[10px] text-gray-500">King Rashid International College (KRI College)
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                                    Mr. Ahamed Fazith, B.P.T, is a qualified <strong>Physiotherapist</strong> with over <strong>4 years of professional and clinical
-                                        experience.</strong> He has gained valuable hands-on training as an <strong>Intern physiotherapist in Madurai Rajaji Government hospital </strong> where he worked with diverse patient cases and rehabilitation programs.
-                                </p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4">At <strong>The King Rashid International College,</strong> he serves as the <strong>Physiotherapist and Sports Coordinator,</strong>
-                                    playing a vital role in promoting student health, physical fitness, and sports development. He
-                                    provides physiotherapy support, injury prevention guidance, rehabilitation assistance, and fitness
-                                    awareness programs for students.</p>
-
-                                <p className="text-xs text-gray-600 leading-relaxed mb-4" >With a strong interest in <strong>sports medicine and student wellness,</strong>  Mr. Fazith actively encourages a
-                                    healthy lifestyle, discipline, and physical well-being among students. His approach focuses on
-                                    preventive care, performance enhancement, and holistic development.
-
-                                </p>
-                            </div>
-
-
-                        </div>
+                        <LeadershipMasonry />
                     </section>
                     {/* Founder Profile */}
                     {/* Founder Profile */}

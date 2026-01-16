@@ -39,7 +39,7 @@ export default function Academics() {
                 <div className="flex flex-col md:flex-row gap-8">
 
                     {/* Main Content Area */}
-                    <div className="w-full md:w-3/4">
+                    <div className="w-full">
                         <h2 className="text-2xl font-serif font-bold text-[#003366] border-b-2 border-[#ccc] pb-2 mb-6 uppercase">
                             Academic Departments & Courses
                         </h2>
@@ -62,7 +62,7 @@ export default function Academics() {
                                             </thead>
                                             <tbody className="divide-y divide-gray-200">
                                                 {cat.courses.map((course, i) => (
-                                                    <tr key={i} className="hover:bg-blue-50/50 transition-colors">
+                                                    <tr key={i} onClick={() => openModal({ course: course.name, type: 'admission' })} className="hover:bg-blue-50/50 transition-colors cursor-pointer">
                                                         <td className="px-4 py-3 font-bold text-[#003366] whitespace-nowrap md:whitespace-normal">
                                                             {course.name}
                                                             <span className="hidden ml-2 md:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium bg-red-100 text-red-800">
@@ -90,41 +90,7 @@ export default function Academics() {
                         </div>
                     </div>
 
-                    {/* Sidebar / Quick Links (Typical University Style) */}
-                    <div className="w-full md:w-1/4 space-y-6 md:sticky md:top-32 md:self-start h-fit">
 
-                        <div className="bg-white border border-gray-300 shadow-sm">
-                            <h4 className="bg-[#003366] text-white font-bold p-3 text-sm uppercase text-center">
-                                Quick Links
-                            </h4>
-                            <ul className="text-sm divide-y divide-gray-200">
-                                {[
-                                    "Download Prospectus 2025",
-                                    "Fee Structure",
-                                    "Online Application Form",
-                                    "Entrance Exam Syllabus",
-                                    "Hostel Regulations",
-                                    "Anti-Ragging Policy"
-                                ].map((link, i) => (
-                                    <li key={i}>
-                                        {link === "Online Application Form" ? (
-                                            <button
-                                                onClick={() => openModal({ type: 'admission' })}
-                                                className="w-full text-left px-4 py-2 hover:bg-gray-50 text-[#003366] hover:text-[#D4AF37] flex items-center gap-2 transition-colors"
-                                            >
-                                                <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></div> {link}
-                                            </button>
-                                        ) : (
-                                            <Link href={link.includes("Fee") ? "/contact" : "/contact"} className="block px-4 py-2 hover:bg-gray-50 text-[#003366] hover:text-[#D4AF37] flex items-center gap-2 transition-colors">
-                                                <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></div> {link}
-                                            </Link>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                    </div>
                 </div>
 
                 <div className="mt-10 text-center border-t border-gray-300 pt-6">
