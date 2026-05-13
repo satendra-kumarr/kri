@@ -1,0 +1,158 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { ChevronRight, ArrowRight, Bell, Star } from 'lucide-react';
+import { useEnquiry } from '../context/EnquiryContext';
+import { getStrapiData } from '../lib/strapi';
+
+interface Course {
+    name: string;
+    duration: string;
+    affiliation: string;
+}
+
+interface Category {
+    title: string;
+    courses: Course[];
+}
+
+const defaultCategories: Category[] = [
+    {
+        title: "Undergraduate Programmes",
+        courses: [
+            { name: "B.Sc. Aviation", duration: "3 Years", affiliation: "Alagappa University" },
+            { name: "B.Sc. Aircraft Maintenance Science", duration: "3 Years", affiliation: "Alagappa University" },
+            { name: "BBA Airline & Airport Management", duration: "3 Years", affiliation: "Alagappa University" }
+        ]
+    },
+    {
+        title: "DGCA / Technical Training",
+        courses: [
+            { name: "Aircraft Maintenance Engineering (AME)", duration: "License", affiliation: "Authorize The Consultant" },
+            { name: "Commercial Pilot License (CPL) Ground Classes", duration: "Training", affiliation: "Authorize The Consultant" }
+        ]
+    },
+    {
+        title: "Diploma & Certificate Courses",
+        courses: [
+            { name: "Diploma in Airline & Airport Management", duration: "1 Year", affiliation: "Central BSS Approved" },
+            { name: "Diploma in Aircraft Maintenance", duration: "1 Year", affiliation: "Central BSS Approved" },
+            { name: "Certificate in Airport Ground Handling", duration: "6 Months", affiliation: "Central BSS Approved" }
+        ]
+    }
+];
+
+export default function Academics() {
+    const { openModal } = useEnquiry();
+    const [categories, setCategories] = useState<Category[]>(defaultCategories);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            const data = await getStrapiData<Category[]>('courses', defaultCategories, (strapiData) => {
+                // Strapi usually returns an array of objects. We need to group them by category.
+                // Assuming Strapi Course has: title, duration, affiliation, and category (relation or text)
+                const grouped: { [key: string]: Course[] } = {};
+
+                strapiData.forEach((item: any) => {
+                    const attrs = item.attributes || item; // Handle Strapi v4/v5
+                    const catName = attrs.category?.name || attrs.category?.data?.attributes?.name || attrs.category || "General";
+                    
+                    if (!grouped[catName]) {
+                        grouped[catName] = [];
+                    }
+
+                    grouped[catName].push({
+                        name: attrs.title || attrs.name,
+                        duration: attrs.duration,
+                        affiliation: attrs.affiliation
+                    });
+                });
+
+                return Object.entries(grouped).map(([title, courses]) => ({
+                    title,
+                    courses
+                }));
+            });
+
+            if (data && data.length > 0) {
+                setCategories(data);
+            }
+        };
+
+        fetchCourses();
+    }, []);
+
+    return (
+        <section className="py-10 bg-[#f5f5f5] border-t border-b border-gray-400 font-sans">
+            <div className="container-custom">
+
+                <div className="flex flex-col md:flex-row gap-8">
+
+                    {/* Main Content Area */}
+                    <div className="w-full">
+                        <h2 className="text-2xl font-serif font-bold text-[#003366] border-b-2 border-[#ccc] pb-2 mb-6 uppercase">
+                            Academic Departments & Courses
+                        </h2>
+
+                        <div className="space-y-8">
+                            {categories.map((cat, idx) => (
+                                <div key={idx} className="bg-white border border-gray-300 shadow-sm">
+                                    <h3 className="bg-[#e0e0e0] text-[#003366] font-bold p-3 text-sm uppercase tracking-wide border-b border-gray-300 flex items-center gap-2">
+                                        <ArrowRight size={16} className="text-[#D4AF37]" /> {cat.title}
+                                    </h3>
+                                    <div className="p-0 overflow-x-auto">
+                                        <table className="w-full text-sm text-left min-w-[500px]">
+                                            <thead>
+                                                <tr className="bg-gray-50 border-b border-gray-200 text-xs uppercase text-gray-500">
+                                                    <th className="px-4 py-2 font-semibold w-1/2">Course Name</th>
+                                                    <th className="px-4 py-2 font-semibold w-1/4">Duration</th>
+                                                    <th className="px-4 py-2 font-semibold w-1/4">Affiliation</th>
+                                                    <th className="px-4 py-2 font-semibold w-12"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="divide-y divide-gray-200">
+                                                {cat.courses.map((course, i) => (
+                                                    <tr key={i} onClick={() => openModal({ course: course.name, type: 'admission' })} className="hover:bg-blue-50/50 transition-colors cursor-pointer">
+                                                        <td className="px-4 py-3 font-bold text-[#003366] whitespace-nowrap md:whitespace-normal">
+                                                            {course.name}
+                                                            <span className="hidden ml-2 md:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium bg-red-100 text-red-800">
+                                                                NEW
+                                                            </span>
+                                                        </td>
+                                                        <td className="px-4 py-3 text-gray-700 font-medium whitespace-nowrap">{course.duration}</td>
+                                                        <td className="px-4 py-3 text-gray-600 italic whitespace-nowrap">{course.affiliation}</td>
+                                                        <td className="px-4 py-3 text-right">
+                                                            <button
+                                                                onClick={() => openModal({ course: course.name, type: 'admission' })}
+                                                                className="text-[#D4AF37] hover:text-[#003366] p-1 rounded hover:bg-gray-100 transition-colors"
+                                                                title="Enquire about this course"
+                                                            >
+                                                                <ChevronRight size={16} />
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div className="mt-10 text-center border-t border-gray-300 pt-6">
+                    <Link href="/courses" className="inline-block border-2 border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white font-bold text-sm px-8 py-2 uppercase tracking-wide transition-colors">
+                        View All Courses & Details
+                    </Link>
+                </div>
+
+            </div>
+
+        </section>
+    );
+}
+
